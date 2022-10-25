@@ -1,7 +1,17 @@
-const { argv } = require('node:process')
+const { argv, stdin } = require('node:process')
 const fs = require('node:fs')
 
-if (argv.length < 4) {
+if (argv.length === 2) {
+  stdin.on('data', (data) => {
+    const lines = data.toString().split('\n')
+
+    for (let i = 0; i < lines.length; i += 1) {
+      console.log(`${i + 1}: ${lines[i]}`)
+    }
+
+    process.exit()
+  })
+} else if (argv.length < 4) {
   console.log('You do not have enough arguments to run this program')
 } else if (!argv.length === 4 || !argv.length === 5) {
   console.log('The program would only accept 2 or 3 arguments')
