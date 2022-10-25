@@ -8,8 +8,6 @@ if (argv.length === 2) {
     for (let i = 0; i < lines.length; i += 1) {
       console.log(`${i + 1}: ${lines[i]}`)
     }
-
-    process.exit()
   })
 } else if (argv.length < 4) {
   console.log('You do not have enough arguments to run this program')
